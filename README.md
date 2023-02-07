@@ -114,4 +114,5 @@ $
 
 ## AUTHORS
  
-* ** Dominic Abakpa** - [DT-GAMER](https://github.com/DT-GAMER)
+* Dominic Abakpa - [DT-GAMER](https://github.com/DT-GAMER)
+* Isioma Ummuna - [Isybliss](https://github.com/Isybliss)
