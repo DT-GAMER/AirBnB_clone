@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-""" Amenity class """
-
-import uuid
-from datetime import datetime
-from models import storage
+"""
+Amenity class, a subclass of BaseModel
+"""
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """ Amenity class """
+    """
+    A subclass of BaseModel class
+    Public class attribute:
+        name: (str)
+    """
     name = ""
