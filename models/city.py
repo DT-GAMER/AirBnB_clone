@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-""" City class """
-
-import uuid
-from datetime import datetime
-from models import storage
+"""
+City class, a subclass of BaseModel
+"""
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """ City class """
+    """
+    A subclass of BaseModel class
+    Public class attributes:
+        state_id: (str) will be State.id
+        name:     (str)
+    """
     state_id = ""
     name = ""
