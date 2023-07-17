@@ -1,118 +1,219 @@
-# AirBnB Clone - The console
-the console for airbnb project. Create a command interpreter that can modify or delete the database
-The users like the administrator of the app Airbnb clone has the posibility of the manipulate objects and data of the application, this objects are:
- 
- * Users
- * Places
- * States
- * Cities
- * Amenities
- * Reviews
+# AirBnB Clone V4
 
+This is a complete full-stack web application, integrating a MySQL database and Flask RESTful API with a dynamic HTML5/CSS3/jQuery front-end.
 
-![alt text](https://i.ibb.co/RSzZ5yh/815046647d23428a14ca.png)
+It was based off the basic characteristics of the Airbnb platform.
 
+![](./readme_images/web_dynamic_diagram.png)
 
-## Requirements
+# Iterations
 
+The project was developed in several iterations, being V4 the last one. This iterations encompassed several concepts and integrations that will be explained below.
 
-## Python Scripts
+## The Console
 
-    Allowed editors: vi, vim, emacs
-    All your files will be interpreted/compiled on Ubuntu 14.04 LTS using python3 (version 3.4.3)
-    All your files should end with a new line
-    The first line of all your files should be exactly #!/usr/bin/python3
-    A README.md file, at the root of the folder of the project, is mandatory
-    Your code should use the PEP 8 style (version 1.7 or more)
-    All your files must be executable
-    The length of your files will be tested using wc
-    All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-    All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-    All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
+The first iteration of the project consisted on building an interactive console in order to allow for development testing.
 
-## Python Unit Tests
+![The Console](./readme_images/the_console_diagram.png)
 
-    Allowed editors: vi, vim, emacs
-    All your files should end with a new line
-    All your test files should be inside a folder tests
-    You have to use the unittest module
-    All your test files should be python files (extension: .py)
-    All your test files and folders should start by test_
-    Your file organization in the tests folder should be the same as your project
-    e.g., For models/base_model.py, unit tests must be in: tests/test_models/test_base_model.py
-    e.g., For models/user.py, unit tests must be in: tests/test_models/test_user.py
-    All your tests should be executed by using this command: python3 -m unittest discover tests
-    You can also test file by file by using this command: python3 -m unittest tests/test_models/test_base_model.py
-    All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-    All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-    All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-    We strongly encourage you to work together on test cases, so that you don’t miss any edge 
- 
- 
-## Installation
- 
- For use this console you need to have:
- * Linux ubuntu 14.04.3 LTS or higger
- * Python 3.7 or higger
+The Console was coded in order to work with a temporary storage engine based on JSON, and included the next features:
 
-## Files
+- Create a new object (ex: a new User or a new Place)
+- Retrieve an object from a file, a database etc…
+- Do operations on objects (count, compute stats, etc…)
+- Update attributes of an object
+- Destroy an object
 
+The console has 2 modes.
 
+**Interactive**
 
- -  HBNHCommand: console.py
- -  Amenity: models/amenity.py
- -  BaseModel: models/base_model.py
- -  City: models/city.py
- -  models.init : models/__init__.py
- -  Place: models/place.py
- -  Review: models/review.py
- -  State: models/state.py
- -  User: models/user.py
- -  FileStorage: models/engine/file_storage.py
- -  engine.init: models/engine/__init__.py
-
-```
-How To run the command interpreter:
-```
-$ ./console.py
-
-
-## Examples
-
-Interactive mode:
 ```
 $ ./console.py
 (hbnb) help
+
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
+
 (hbnb)
 (hbnb)
 (hbnb) quit
 $
 ```
-Non-interactive mode:
+
+**Non Interactive**
+
 ```
 $ echo "help" | ./console.py
 (hbnb)
+
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
 $
 $ cat test_help | ./console.py
 (hbnb)
+
 Documented commands (type help <topic>):
-================<F11>========================
+========================================
 EOF  help  quit
-(hbnb)<F11><F11>
+(hbnb)
 $
 ```
 
-## AUTHORS
- 
-* Dominic Abakpa - [DT-GAMER](https://github.com/DT-GAMER)
-* Isioma Ummuna - [Isybliss](https://github.com/Isybliss)
+## Web Static
+
+This part of the project consisted in building the basic CSS and HTML source code.
+
+![](./readme_images/web_static_diagram.png)
+
+![](./readme_images/web_static.png)
+
+## MySQL
+
+This section consisted on the data modeling for the relational database in MySQL.
+
+![](./readme_images/mysql_diagram.png)
+
+![](./readme_images/mysql_model.jpg)
+
+## Web Framework
+
+This iteration consisted on building the first approach to dynamic content for the application by using Flask and Jinja, and effectively having Server Side Render.
+
+For this development, the MySQL database started being used in order to serve content to the client, and provide it with back end based features.
+
+All of the HTML and CSS source code started being hosted in the server, and no items were hard coded, but instead produced through dynamic data integration.
+
+![](./readme_images/web_framework.jpg)
+
+![](./readme_images/web_framework_diagram.png)
+
+## RESTful API
+
+Although the Server Side Render with Flask and Jinja was interesting, this section consisted on developing a different approach to dynamic content generation, starting with a RESTful API.
+
+This Application Programming Interface was built with Flask and SQLAlchemy in order to work with MySQL and respond to HTTP requests.
+
+![](./readme_images/restful_api_diagram.png)
+
+The endpoints can be seen below.
+
+    GET /api/v1/status
+    **Returns the status of the API
+
+    GET /api/v1/stats
+    **Retrieves the number of each objects by type
+    GET /api/v1/states
+    **Retrieves the list of all State objects
+
+    GET /api/v1/states/<state_id>
+    **Retrieves a State object
+    DELETE /api/v1/states/<state_id>
+    **Deletes a State object
+    POST /api/v1/states
+    **Creates a State
+    PUT /api/v1/states/<state_id>
+    **Updates a State object
+
+    GET /api/v1/states/<state_id>/cities
+    **Retrieves the list of all City objects of a State
+    GET /api/v1/cities/<city_id>
+    **Retrieves a City object
+    DELETE /api/v1/cities/<city_id>
+    Deletes a City object
+    POST /api/v1/states/<state_id>/cities
+    Creates a City
+    PUT /api/v1/cities/<city_id>
+    Updates a City object
+
+    GET /api/v1/amenities
+    **Retrieves the list of all Amenity objects
+    GET /api/v1/amenities/<amenity_id>
+    **Retrieves a Amenity object
+    DELETE /api/v1/amenities/<amenity_id>
+    **Deletes a `menity object
+    POST /api/v1/amenities
+    **Creates a Amenity
+    PUT /api/v1/amenities/<amenity_id>
+    **Updates a Amenity object
+
+    GET /api/v1/users
+    **Retrieves the list of all User objects
+    GET /api/v1/users/<user_id>
+    **Retrieves a User object
+    DELETE /api/v1/users/<user_id>
+    **Deletes a User object
+    POST /api/v1/users
+    **Creates a User
+    PUT /api/v1/users/<user_id>
+    **Updates a User object
+
+    GET /api/v1/cities/<city_id>/places
+    **Retrieves the list of all Place objects of a City
+    GET /api/v1/places/<place_id>
+    **Retrieves a Place object
+    DELETE /api/v1/places/<place_id>
+    **Deletes a Place object
+    POST /api/v1/cities/<city_id>/places
+    **Creates a Place
+    PUT /api/v1/places/<place_id>
+    **Updates a Place object
+
+    GET /api/v1/places/<place_id>/reviews
+    **Retrieves the list of all Review objects of a Place
+    GET /api/v1/reviews/<review_id>
+    **Retrieves a Review object
+    DELETE /api/v1/reviews/<review_id>
+    **Deletes a Review object
+    POST /api/v1/places/<place_id>/reviews
+    **Creates a Review
+    PUT /api/v1/reviews/<review_id>
+    **Updates a Review object
+
+    GET /api/v1/places/<place_id>/amenities
+    **Retrieves the list of all Amenity objects of a Place
+    DELETE /api/v1/places/<place_id>/amenities/<amenity_id>
+    **Deletes a Amenity` object to a Place
+    POST /api/v1/places/<place_id>/amenities/<amenity_id>
+    **Link a Amenity object to a Place
+
+    POST /api/v1/places_search
+    **Retrieves all Place objects depending of the JSON in the body of the request.
+
+    GET /apidocs
+    **Gets the documentation of the API built in Flasgger
+
+## Web Dynamic
+
+This was the final iteration of the project and consisted in changing the Server Side Render for Client Based Render using JavaScript with jQuery, and the RESTful API from before.
+
+![Image result for jquery and javascript](https://miro.medium.com/max/600/1*8Whvj5G9f5DVmCBIzywYww.png)
+
+![](./readme_images/web_dynamic_diagram.png)
+
+# Challenges and Future Features
+
+This was a big project that helped in understanding how a Fullstack application works. Some of the most challenging parts had to do with the Object Relational Mapping for the API, and the Client Based Render.
+
+For future projects, this serves as a great base for beginning to understand other technologies such as React, NodeJS, and Mongo, among others.
+
+#### AirBnB Clone was created by Abakpa Dominic
+
+## Contact Me                                                 
+### Abakpa Dominic
+[Github](https://github.com/DT-GAMER) <br>
+[Instagram](https://www.instagram.com/dt_gamer01/) <br>         [Gmail](mailto:abakpad82@gmail.com) <br>
+[Twitter](https://twitter.com/dominic_abakpa) <br>
+
+
+
+## License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
